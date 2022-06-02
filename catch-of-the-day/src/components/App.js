@@ -26,7 +26,7 @@ class App extends React.Component {
 
   addToOrder = (key) => {
     //take a copy of state
-    const oder = { ...this.state.order };
+    const order = { ...this.state.order };
     // add or order or update
     order[key] = order[key] + 1 || 1;
     //call setstate to update our state object
@@ -48,7 +48,7 @@ class App extends React.Component {
             ))}
           </ul>
         </div>
-        <Order />
+        <Order fishes={this.state.fishes} order={this.state.order} />
 
         <Inventory
           addFish={this.addFish}
