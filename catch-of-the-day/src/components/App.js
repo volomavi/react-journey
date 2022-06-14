@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import Header from "./Header";
 import Order from "./Order";
 import Inventory from "./Inventory";
@@ -11,6 +13,11 @@ class App extends React.Component {
     fishes: {},
     order: {},
   };
+
+  static propTypes = {
+    match: PropTypes.object,
+  };
+
   componentDidMount() {
     const { params } = this.props.match;
     //reinstate local storage
@@ -78,7 +85,7 @@ class App extends React.Component {
     //call setstate to update our state object
     this.setState({ order: order });
   };
-  removeFromOrder = key => {
+  removeFromOrder = (key) => {
     //take a copy of state
     const order = { ...this.state.order };
     // add or order or update
